@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Ticket.Application.Contracts;
 using Ticket.Domain.Entities;
 using Ticket.Doman.Common;
 
@@ -6,9 +7,17 @@ namespace Ticket.Persistence
 {
     public class TicketDbContext : DbContext
     {
+        private readonly ILoggedInUserService _loggedInUserService;
+
         public TicketDbContext(DbContextOptions<TicketDbContext> options)
-          : base(options)
+           : base(options)
         {
+        }
+
+        public TicketDbContext(DbContextOptions<TicketDbContext> options, ILoggedInUserService loggedInUserService)
+            : base(options)
+        {
+            _loggedInUserService = loggedInUserService;
         }
 
         public DbSet<Event> Events { get; set; }
