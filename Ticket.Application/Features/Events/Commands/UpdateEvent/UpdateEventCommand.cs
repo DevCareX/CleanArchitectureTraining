@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ticket.Application.Features.Events.Commands.UpdateEvent
 {
-    internal class UpdateEventCommand
+    public class UpdateEventCommand
     {
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Ticket.Application.Features.Events.Commands.DeleteEvent
 {
-    internal class DeleteEventCommand
+    public class DeleteEventCommand
     {
+        public Guid EventId { get; set; }
     }
 }
